@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
+import React, { Component } from 'react';
+// import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import TodoListContainer from './containers/TodoListContainer';
@@ -16,8 +16,8 @@ class App extends Component {
     return (
       <main className="container">
         <input type="button" className="btn btn-block btn-large" value="sad"/>
-        <TodoTaskContainer />
         <TodoListContainer />
+        <TodoTaskContainer />
       </main>
     );
   }
@@ -25,11 +25,11 @@ class App extends Component {
 
 App.propTypes = propTypes;
 
-function mapStateToProps(state) {
+function mapStateToProps() {
   return {};
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps() {
   return {};
 }
 

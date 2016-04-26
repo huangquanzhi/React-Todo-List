@@ -19,7 +19,7 @@ export const editCategory = (category) => {
 };
 
 export const editColor = (color) => {
-  return { type: TASK_EDIT_DATE, color };
+  return { type: TASK_EDIT_COLOR, color };
 };
 
 export const editDate = (date) => {

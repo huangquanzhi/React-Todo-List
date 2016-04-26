@@ -25,7 +25,7 @@ class TaskDate extends Component {
         onChange={this.handleOnchange}
         hintText="Task due date"
       />
-    )
+    );
   }
 }
 

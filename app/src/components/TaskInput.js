@@ -26,7 +26,7 @@ class TaskInput extends Component {
         value={text}
         onChange={this.handleOnchange}
       />
-    )
+    );
   }
 }
 

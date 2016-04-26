@@ -1,5 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import Table from 'material-ui/lib/table/table';
+import React, { Component } from 'react';
 import TableRow from 'material-ui/lib/table/table-row';
 import TableHeaderColumn from 'material-ui/lib/table/table-header-column';
 import TableHeader from 'material-ui/lib/table/table-header';

@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import TableRow from 'material-ui/lib/table/table-row';
 import TableRowColumn from 'material-ui/lib/table/table-row-column';
-import TableBody from 'material-ui/lib/table/table-body';
 
 const propTypes = {
   description: PropTypes.string,

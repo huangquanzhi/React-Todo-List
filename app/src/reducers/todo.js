@@ -11,7 +11,7 @@ const initialState = [];
 const todo = (state = initialState, action) => {
   switch (action.type) {
     case SETUP_TODO:
-      const todo = {
+      const newTodo = {
         id: state.length,
         text: '',
         timeStamp: new Date().getTime(),
@@ -22,14 +22,14 @@ const todo = (state = initialState, action) => {
         isCompleted: false,
       };
 
-      return [...state, todo];
+      return [...state, newTodo];
     case TODO_EDIT_TEXT:
       return [...state.slice(0, action.index),
         Object.assign({}, state[action.index],
           {
             text: action.text,
           }),
-        ...state.slice(action.index + 1)
+        ...state.slice(action.index + 1),
       ];
     case TODO_EDIT_PRIORITY:
       return [...state.slice(0, action.index),
@@ -37,7 +37,7 @@ const todo = (state = initialState, action) => {
           {
             priority: action.order,
           }),
-        ...state.slice(action.index + 1)
+        ...state.slice(action.index + 1),
       ];
     case TODO_EDIT_CATEGORY:
       return [...state.slice(0, action.index),
@@ -45,7 +45,7 @@ const todo = (state = initialState, action) => {
           {
             category: action.category,
           }),
-        ...state.slice(action.index + 1)
+        ...state.slice(action.index + 1),
       ];
     case TODO_EDIT_COLOR:
       return [...state.slice(0, action.index),
@@ -53,7 +53,7 @@ const todo = (state = initialState, action) => {
           {
             color: action.color,
           }),
-        ...state.slice(action.index + 1)
+        ...state.slice(action.index + 1),
       ];
     default:
       return state;

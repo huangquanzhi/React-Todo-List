@@ -29,14 +29,14 @@ class TaskForm extends Component {
     const { task } = this.props;
     return (
       <TaskInput text={task.text} onChange={this.handleTaskChange}/>
-    )
+    );
   }
 
   renderTaskDate() {
     const { task } = this.props;
     return (
       <TaskDate date={task.date} onChange={this.handleDateChange}/>
-    )
+    );
   }
 
   render() {

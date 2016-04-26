@@ -14,15 +14,13 @@ const propTypes = {
 class TodoListContainer extends Component {
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {
-    this.props.todoActions.addNewTodo(0, '123', 0, 'lolz', '#EEEEEE')
+    this.props.todoActions.addNewTodo(0, '123', 0, 'lolz', '#EEEEEE');
   }
 
   render() {
-
     return (
       <div className="todoListContainer">
         <TodoList {...this.props} />

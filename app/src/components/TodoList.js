@@ -1,9 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import Table from 'material-ui/lib/table/table';
-import TableHeaderColumn from 'material-ui/lib/table/table-header-column';
-import TableRow from 'material-ui/lib/table/table-row';
-import TableHeader from 'material-ui/lib/table/table-header';
-import TableRowColumn from 'material-ui/lib/table/table-row-column';
 import TableBody from 'material-ui/lib/table/table-body';
 
 import TodoHeader from './TodoHeader';
@@ -24,13 +20,13 @@ class TodoList extends Component {
   renderTodoHeader() {
     return (
       <TodoHeader/>
-    )
+    );
   }
 
   renderTodoItems() {
-    const { filterBy, todos } = this.props;
+    const { todos } = this.props;
 
-    let todoList = todos;
+    const todoList = todos;
 
     return todoList.map((todo, index) => {
       return (
@@ -39,19 +35,18 @@ class TodoList extends Component {
           category={todo.category}
           priority={todo.priority}
           time={todo.timeStamp}
-          editAction={()=>{}}
-          editAction={()=>{}}
+          editAction={() => {}}
+          editAction={() => {}}
           key={index}
         />
-      )
+      );
     });
   }
 
   render() {
-
     return (
       <Table className="todoList">
-        {this.renderTodoHeader() }
+        { this.renderTodoHeader() }
         <TableBody>
           {this.renderTodoItems() }
         </TableBody>

@@ -36,4 +36,3 @@ export const addNewTodo = (index, text, priority, category, color) => {
     dispatch(editColor(index, color));
   };
 };
-
