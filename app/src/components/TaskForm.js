@@ -12,6 +12,7 @@ class TaskForm extends Component {
   constructor(props) {
     super(props);
     this.handleTaskChange = this.handleTaskChange.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
     this.renderTaskInput = this.renderTaskInput.bind(this);
   }
 

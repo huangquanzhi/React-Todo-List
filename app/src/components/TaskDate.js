@@ -12,9 +12,10 @@ class TaskDate extends Component {
     this.handleOnchange = this.handleOnchange.bind(this);
   }
 
-  handleOnchange(e) {
+  handleOnchange(e, d) {
     const { onChange } = this.props;
-    onChange(e.target.value);
+    const date = new Date(d).getTime();
+    onChange(date);
   }
 
   render() {
