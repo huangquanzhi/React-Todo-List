@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+build
+dist
+.idea
+
+# Exclude compiled files
+lib
+
+# OS files
+.DS_STORE
