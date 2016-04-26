@@ -1,0 +1,6 @@
+export const SETUP_TODO = 'SETUP_TODO';
+
+export const TODO_EDIT_TEXT = 'TODO_EDIT_TEXT';
+export const TODO_EDIT_PRIORITY = 'TODO_EDIT_PRIORITY';
+export const TODO_EDIT_CATEGORY = 'TODO_EDIT_CATEGORY';
+export const TODO_EDIT_COLOR = 'TODO_EDIT_COLOR';

@@ -2,8 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-const propTypes = {
-};
+import TodoListContainer from './containers/TodoListContainer';
+import TodoTaskContainer from './containers/TodoTaskContainer';
+
+const propTypes = {};
 
 class App extends Component {
   constructor(props) {
@@ -12,9 +14,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-
-      </div>
+      <main className="container">
+        <input type="button" className="btn btn-block btn-large" value="sad"/>
+        <TodoTaskContainer />
+        <TodoListContainer />
+      </main>
     );
   }
 }
@@ -22,16 +26,11 @@ class App extends Component {
 App.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  return {
-    message: state.message,
-    authentication: state.authentication,
-  };
+  return {};
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(auth, dispatch),
-  };
+  return {};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,16 +1,21 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import configStore from 'src/store/index';
+import configStore from './src/store/index';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import 'expose?$!expose?jQuery!jquery';
+import 'jquery';
+import 'bootstrap';
 import 'babel-polyfill';
 import 'es5-shim';
 
 import './assets/css/style.css';
-import App from 'src/app.src';
+import App from './src/app.js';
 
 const store = configStore();
+
+injectTapEventPlugin();
 
 ReactDOM.render(
   <Provider store={store}>
