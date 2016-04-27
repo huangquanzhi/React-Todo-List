@@ -21,7 +21,7 @@ const propTypes = {
   onCategoryClick: PropTypes.func,
 };
 
-let SelectableList = SelectableContainerEnhance(List);
+let SelectableList = new SelectableContainerEnhance(List);
 SelectableList = wrapState(SelectableList);
 
 class TaskCategory extends Component {

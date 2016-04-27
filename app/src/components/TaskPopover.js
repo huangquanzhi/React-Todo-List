@@ -6,7 +6,7 @@ import FloatingActionButton from 'material-ui/lib/floating-action-button';
 
 const propTypes = {
   children: PropTypes.node,
-  button: PropTypes.node,
+  icon: PropTypes.node,
 };
 
 const styles = {

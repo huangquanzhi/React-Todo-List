@@ -25,4 +25,3 @@ export const editColor = (color) => {
 export const editDate = (date) => {
   return { type: TASK_EDIT_DATE, date };
 };
-

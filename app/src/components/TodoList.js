@@ -44,6 +44,7 @@ class TodoList extends Component {
           category={category.categories[todo.category]}
           priority={priority}
           time={todo.timeStamp}
+          color={todo.color}
           editAction={() => {}}
           editAction={() => {}}
           key={index}
@@ -54,11 +55,16 @@ class TodoList extends Component {
 
   render() {
     return (
-      <Table className="todoList">
+      <Table
+        className="todoList"
+
+      >
         <TableHeader>
           <TodoHeader />
         </TableHeader>
-        <TableBody>
+        <TableBody
+          showRowHover
+        >
           {this.renderTodoItems() }
         </TableBody>
 

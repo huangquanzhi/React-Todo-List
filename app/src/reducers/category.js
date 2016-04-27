@@ -14,15 +14,15 @@ const category = (state = initialState, action) => {
     case CATEGORY_EDIT_TEXT:
       return Object.assign({}, state, {
         text: action.text,
-      })
+      });
     case CATEGORY_CLEAR_TEXT:
       return Object.assign({}, state, {
         text: '',
-      })
+      });
     case CATEGORY_ADD_CATE:
       return Object.assign({}, state, {
         categories: state.categories.concat(action.text),
-      })
+      });
     default:
       return state;
   }

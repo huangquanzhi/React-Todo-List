@@ -15,4 +15,3 @@ export const openSnackBar = (status, message = null) => {
     dispatch({ type: SET_SNACKBAR_STATE, status });
   };
 };
-

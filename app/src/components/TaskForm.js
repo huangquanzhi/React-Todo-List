@@ -69,7 +69,7 @@ class TaskForm extends Component {
 
   handleColorChange(value) {
     const { taskActions } = this.props;
-    taskActions.editColor(value);
+    taskActions.editColor('#' + value);
   }
 
   handleTaskAdd() {

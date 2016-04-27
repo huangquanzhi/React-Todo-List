@@ -13,8 +13,8 @@ const style = {
     position: 'absolute',
     top: '100px',
     left: '20px',
-  }
-}
+  },
+};
 
 class TaskColor extends Component {
   constructor(props) {
