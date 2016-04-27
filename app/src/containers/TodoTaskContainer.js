@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as taskActionCreator from '../actions/task';
+import * as categoryActionCreator from '../actions/category';
 
 import TaskForm from '../components/TaskForm';
 
@@ -27,12 +28,14 @@ TodoTaskContainer.propTypes = propTypes;
 function mapStateToProps(state) {
   return {
     task: state.task,
+    category: state.category,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     taskActions: bindActionCreators(taskActionCreator, dispatch),
+    categoryActions: bindActionCreators(categoryActionCreator, dispatch),
   };
 }
 

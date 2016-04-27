@@ -9,7 +9,7 @@ import {
 const initialState = {
   text: '',
   priority: 0,
-  category: null,
+  category: 0,
   color: '#3F51B5',
   date: new Date().getTime(),
 };
@@ -22,15 +22,15 @@ const task = (state = initialState, action) => {
       });
     case TASK_EDIT_PRIORITY:
       return Object.assign({}, state, {
-        text: action.order,
+        priority: action.order,
       });
     case TASK_EDIT_CATEGORY:
       return Object.assign({}, state, {
-        text: action.text,
+        category: action.category,
       });
     case TASK_EDIT_COLOR:
       return Object.assign({}, state, {
-        text: action.text,
+        color: action.color,
       });
     case TASK_EDIT_DATE:
       return Object.assign({}, state, {

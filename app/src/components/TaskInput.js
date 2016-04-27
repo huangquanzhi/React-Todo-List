@@ -21,8 +21,8 @@ class TaskInput extends Component {
     const { text } = this.props;
     return (
       <TextField
-        hintText="Todo"
-        floatingLabelText="Please Enter Todo Item"
+        floatingLabelText="Todo"
+        hintText="Please Enter Todo Item"
         value={text}
         onChange={this.handleOnchange}
       />
