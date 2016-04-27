@@ -30,7 +30,7 @@ class TaskPriority extends Component {
 
   handleHighClick() {
     const { onClick } = this.props;
-    onClick(3);
+    onClick(2);
   }
 
   renderPopover() {

@@ -4,6 +4,7 @@ import {
   TODO_EDIT_PRIORITY,
   TODO_EDIT_CATEGORY,
   TODO_EDIT_COLOR,
+  TODO_EDIT_DATE,
 } from '../constants/todo';
 
 const initialState = [];
@@ -52,6 +53,14 @@ const todo = (state = initialState, action) => {
         Object.assign({}, state[action.index],
           {
             color: action.color,
+          }),
+        ...state.slice(action.index + 1),
+      ];
+    case TODO_EDIT_DATE:
+      return [...state.slice(0, action.index),
+        Object.assign({}, state[action.index],
+          {
+            date: action.date,
           }),
         ...state.slice(action.index + 1),
       ];

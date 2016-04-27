@@ -10,8 +10,10 @@ import TaskColor from './TaskColor';
 const propTypes = {
   category: PropTypes.object,
   categoryActions: PropTypes.object,
+  snackbarActions: PropTypes.object,
   task: PropTypes.object,
   taskActions: PropTypes.object,
+  todoActions: PropTypes.object,
 };
 
 class TaskForm extends Component {
@@ -22,8 +24,9 @@ class TaskForm extends Component {
     this.handlePriorityChange = this.handlePriorityChange.bind(this);
     this.handleCategoryAdd = this.handleCategoryAdd.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
+    this.handleCategoryClick = this.handleCategoryClick.bind(this);
     this.handleColorChange = this.handleColorChange.bind(this);
-    this.hangleTaskAdd = this.hangleTaskAdd.bind(this);
+    this.handleTaskAdd = this.handleTaskAdd.bind(this);
     this.renderTaskInput = this.renderTaskInput.bind(this);
     this.renderTaskDate = this.renderTaskDate.bind(this);
     this.renderPriority = this.renderPriority.bind(this);
@@ -48,14 +51,20 @@ class TaskForm extends Component {
   }
 
   handleCategoryAdd() {
-    const { category, categoryActions } = this.props;
+    const { category, categoryActions, snackbarActions } = this.props;
     categoryActions.addCategory(category.text);
     categoryActions.clearText();
+    snackbarActions.openSnackBar(true, 'Category Added');
   }
 
-  handleCategoryChange(value) {
+  handleCategoryChange(index) {
     const { categoryActions } = this.props;
-    categoryActions.editText(value);
+    categoryActions.editText(index);
+  }
+
+  handleCategoryClick(index) {
+    const { taskActions } = this.props;
+    taskActions.editCategory(index);
   }
 
   handleColorChange(value) {
@@ -63,9 +72,16 @@ class TaskForm extends Component {
     taskActions.editColor(value);
   }
 
-  hangleTaskAdd(value) {
-    const { taskActions } = this.props;
-    taskActions.editDate(value);
+  handleTaskAdd() {
+    const { snackbarActions, task, todoActions } = this.props;
+    todoActions.addNewTodo(
+      task.text,
+      task.priority,
+      task.category,
+      task.color,
+      task.date
+    );
+    snackbarActions.openSnackBar(true, 'Todo Added');
   }
 
   renderTaskInput() {
@@ -97,6 +113,7 @@ class TaskForm extends Component {
         currentCategory={task.category}
         onAddClick={this.handleCategoryAdd}
         onTextChange={this.handleCategoryChange}
+        onCategoryClick={this.handleCategoryClick}
         text={category.text}
       />
     );
@@ -111,7 +128,9 @@ class TaskForm extends Component {
 
   renderAdd() {
     return (
-      <FloatingActionButton>
+      <FloatingActionButton
+        onClick={ this.handleTaskAdd }
+      >
         <ContentAdd />
       </FloatingActionButton>
     );
@@ -119,16 +138,25 @@ class TaskForm extends Component {
 
   render() {
     return (
-      <div className="taskForm row">
-        <div className="col-md-6">
+      <div className="taskForm">
+        <div>
           {this.renderTaskInput() }
         </div>
-        <div className="col-md-6">
+        <div>
           {this.renderTaskDate() }
         </div>
-        { this.renderPriority() }
-        { this.renderCategory() }
-        { this.renderColor() }
+        <div>
+          { this.renderPriority() }
+        </div>
+        <div>
+          { this.renderCategory() }
+        </div>
+        <div>
+          { this.renderColor() }
+        </div>
+        <div>
+          { this.renderAdd() }
+        </div>
       </div>
     );
   }

@@ -1,11 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import Table from 'material-ui/lib/table/table';
 import TableBody from 'material-ui/lib/table/table-body';
+import TableHeader from 'material-ui/lib/table/table-header';
 
 import TodoHeader from './TodoHeader';
 import TodoRow from './TodoRow';
 
 const propTypes = {
+  category: PropTypes.object,
   filterBy: PropTypes.string,
   todos: PropTypes.array,
 };
@@ -13,27 +15,34 @@ const propTypes = {
 class TodoList extends Component {
   constructor(props) {
     super(props);
-    this.renderTodoHeader = this.renderTodoHeader.bind(this);
     this.renderTodoItems = this.renderTodoItems.bind(this);
   }
 
-  renderTodoHeader() {
-    return (
-      <TodoHeader/>
-    );
+  getPriority(order) {
+    switch (order) {
+      case 0:
+        return 'Low';
+      case 1:
+        return 'Mid';
+      case 2:
+        return 'High';
+      default:
+        return 'Unknown';
+    }
   }
 
   renderTodoItems() {
-    const { todos } = this.props;
+    const { category, todos } = this.props;
 
     const todoList = todos;
 
     return todoList.map((todo, index) => {
+      const priority = this.getPriority(todo.priority);
       return (
         <TodoRow
           description={todo.text}
-          category={todo.category}
-          priority={todo.priority}
+          category={category.categories[todo.category]}
+          priority={priority}
           time={todo.timeStamp}
           editAction={() => {}}
           editAction={() => {}}
@@ -46,10 +55,13 @@ class TodoList extends Component {
   render() {
     return (
       <Table className="todoList">
-        { this.renderTodoHeader() }
+        <TableHeader>
+          <TodoHeader />
+        </TableHeader>
         <TableBody>
           {this.renderTodoItems() }
         </TableBody>
+
       </Table>
     );
   }

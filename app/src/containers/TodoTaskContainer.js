@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 
 import * as taskActionCreator from '../actions/task';
 import * as categoryActionCreator from '../actions/category';
+import * as todoActionCreator from '../actions/todo';
+import * as snackBarActionCreator from '../actions/snackbar';
 
 import TaskForm from '../components/TaskForm';
-
-const propTypes = {};
 
 class TodoTaskContainer extends Component {
   constructor(props) {
@@ -23,8 +23,6 @@ class TodoTaskContainer extends Component {
   }
 }
 
-TodoTaskContainer.propTypes = propTypes;
-
 function mapStateToProps(state) {
   return {
     task: state.task,
@@ -34,8 +32,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    taskActions: bindActionCreators(taskActionCreator, dispatch),
     categoryActions: bindActionCreators(categoryActionCreator, dispatch),
+    taskActions: bindActionCreators(taskActionCreator, dispatch),
+    todoActions: bindActionCreators(todoActionCreator, dispatch),
+    snackbarActions: bindActionCreators(snackBarActionCreator, dispatch),
   };
 }
 

@@ -8,6 +8,8 @@ import ActionViewList from 'material-ui/lib/svg-icons/action/view-list';
 import FloatingActionButton from 'material-ui/lib/floating-action-button';
 import ContentAdd from 'material-ui/lib/svg-icons/content/add';
 
+import { wrapState } from './SelectableListWrap';
+
 import TaskPopover from './TaskPopover';
 
 const propTypes = {
@@ -16,16 +18,18 @@ const propTypes = {
   text: PropTypes.string,
   onAddClick: PropTypes.func,
   onTextChange: PropTypes.func,
+  onCategoryClick: PropTypes.func,
 };
 
-let SelectableList;
+let SelectableList = SelectableContainerEnhance(List);
+SelectableList = wrapState(SelectableList);
 
 class TaskCategory extends Component {
   constructor(props) {
     super(props);
-    SelectableList = SelectableContainerEnhance(List);
     this.handleAddClick = this.handleAddClick.bind(this);
     this.handleTextOnChange = this.handleTextOnChange.bind(this);
+    this.handleCategoryClick = this.handleCategoryClick.bind(this);
     this.renderCategoryList = this.renderCategoryList.bind(this);
     this.renderPopover = this.renderPopover.bind(this);
   }
@@ -33,6 +37,13 @@ class TaskCategory extends Component {
   handleAddClick() {
     const { onAddClick } = this.props;
     onAddClick();
+  }
+
+  handleCategoryClick(index) {
+    const { onCategoryClick } = this.props;
+    if (typeof index === 'number') {
+      onCategoryClick(index);
+    }
   }
 
   handleTextOnChange(e) {
@@ -45,6 +56,7 @@ class TaskCategory extends Component {
     return categories.map((category, index) => {
       return (
         <ListItem
+          key={index}
           value={index}
           primaryText={category}
         />
@@ -59,6 +71,7 @@ class TaskCategory extends Component {
         <SelectableList
           value={currentCategory}
           subheader="Categories"
+          onClick={this.handleCategoryClick}
         >
           { this.renderCategoryList() }
         </SelectableList>

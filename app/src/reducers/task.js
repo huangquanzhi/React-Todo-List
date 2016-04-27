@@ -10,7 +10,7 @@ const initialState = {
   text: '',
   priority: 0,
   category: 0,
-  color: '#3F51B5',
+  color: '#EEEEEE',
   date: new Date().getTime(),
 };
 

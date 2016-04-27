@@ -7,6 +7,7 @@ import * as todoActionCreator from '../actions/todo';
 import TodoList from '../components/TodoList';
 
 const propTypes = {
+  category: PropTypes.object,
   todoActions: PropTypes.object,
   todos: PropTypes.array,
 };
@@ -14,10 +15,6 @@ const propTypes = {
 class TodoListContainer extends Component {
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
-    this.props.todoActions.addNewTodo(0, '123', 0, 'lolz', '#EEEEEE');
   }
 
   render() {
@@ -34,6 +31,7 @@ TodoListContainer.propTypes = propTypes;
 function mapStateToProps(state) {
   return {
     todos: state.todo,
+    category: state.category,
   };
 }
 

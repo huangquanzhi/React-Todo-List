@@ -5,7 +5,7 @@ import TableRowColumn from 'material-ui/lib/table/table-row-column';
 const propTypes = {
   description: PropTypes.string,
   category: PropTypes.string,
-  priority: PropTypes.number,
+  priority: PropTypes.string,
   time: PropTypes.number,
   editAction: PropTypes.func,
   deleteAction: PropTypes.func,
@@ -36,7 +36,7 @@ class TodoRow extends Component {
         <TableRowColumn>{description}</TableRowColumn>
         <TableRowColumn>{category}</TableRowColumn>
         <TableRowColumn>{priority}</TableRowColumn>
-        <TableRowColumn>{ new Date(time).getDate() }</TableRowColumn>
+        <TableRowColumn>{ new Date(time).toDateString() }</TableRowColumn>
         <TableRowColumn>Action</TableRowColumn>
       </TableRow>
     );
