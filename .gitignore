@@ -49,3 +49,4 @@ node_modules
 .git
 .idea
 dist
+.idea/workspace.xml
