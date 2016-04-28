@@ -41,6 +41,7 @@ class TaskPopover extends Component {
       <FloatingActionButton
         onTouchTap={this.handleTouchTap}
         label="Priority"
+        secondary
       >
         { this.props.icon }
         <Popover

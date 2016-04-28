@@ -18,7 +18,7 @@ const todo = (state = initialState, action) => {
         timeStamp: new Date().getTime(),
         priority: 0,
         category: 0,
-        color: '#FF0404',
+        color: '#FFFFFF',
         isEditing: false,
         isCompleted: false,
       };
