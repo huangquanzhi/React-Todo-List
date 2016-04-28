@@ -23,7 +23,9 @@ class TodoListContainer extends Component {
   render() {
     return (
       <div className="todoListContainer">
-        <TodoList {...this.props} />
+        <div className="col-md-8">
+          <TodoList {...this.props} />
+        </div>
       </div>
     );
   }
