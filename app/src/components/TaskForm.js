@@ -138,15 +138,15 @@ class TaskForm extends Component {
 
   render() {
     return (
-      <div className="taskForm col-md-8 col-md-offset-2">
-        <div className="row">
-          {this.renderTaskInput() }
-        </div>
-        <div className="row">
-          {this.renderTaskDate() }
+      <div className="taskForm">
+        <div className="taskInput row">
+          <div className="col-md-6 col-md-offset-3">
+            {this.renderTaskInput() }
+            {this.renderTaskDate() }
+          </div>
         </div>
         <div className="taskOptions row">
-          <div>
+          <div className="col-md-1 col-md-offset-1">
             { this.renderPriority() }
           </div>
           <div>
@@ -155,7 +155,7 @@ class TaskForm extends Component {
           <div>
             { this.renderColor() }
           </div>
-          <div>
+          <div className="col-md-3">
             { this.renderAdd() }
           </div>
         </div>
